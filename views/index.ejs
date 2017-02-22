@@ -1,0 +1,105 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/demo.css" />
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+<div class="container">
+
+	
+
+			<form>
+			<section class="content bgcolor-4">
+
+				<!--<div class="video-background">
+		 			<iframe frameborder="0" height="100%" width="100%"  src="https://www.youtube.com/embed/xB5fqWxR7z4?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ" frameborder="0"></iframe> 
+ 				</div>
+ 				-->
+
+				<span class="input input--kuro">
+					<input class="input__field input__field--kuro" type="text" id="input-7" />
+					<label class="input__label input__label--kuro" for="input-7">
+						<span class="input__label-content input__label-content--kuro"><%= name %></span>
+					</label>
+					<input type="submit" id="submit">
+				</span>
+			</section>
+			</form>
+			
+</div>
+
+
+<div id="out">
+</div>
+
+
+<div id="rgapi">
+	<h1 id="infos">Account informations</h1>
+	<% if ( fbody != undefined ) { %>	
+		<h2><%= fbody %> </h2>
+		<h2><%= sbody %> </h2>
+	<% } %>
+</div>
+
+
+
+
+
+
+<script src="/static/js/classie.js"></script>
+<script src="/static/js/script.js"></script>
+
+
+<script>
+
+			(function() {
+				
+				if (!String.prototype.trim) {
+					(function() {
+						
+						var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+						String.prototype.trim = function() {
+							return this.replace(rtrim, '');
+						};
+					})();
+				}
+
+				[].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
+					
+					if( inputEl.value.trim() !== '' ) {
+						classie.add( inputEl.parentNode, 'input--filled' );
+					}
+
+					
+					inputEl.addEventListener( 'focus', onInputFocus );
+					inputEl.addEventListener( 'blur', onInputBlur );
+				} );
+
+				function onInputFocus( ev ) {
+					classie.add( ev.target.parentNode, 'input--filled' );
+				}
+
+				function onInputBlur( ev ) {
+					if( ev.target.value.trim() === '' ) {
+						classie.remove( ev.target.parentNode, 'input--filled' );
+					}
+				}
+			})();
+
+</script>
+
+</body>
+
+
+
+ </html>
