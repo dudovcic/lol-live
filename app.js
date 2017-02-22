@@ -2,7 +2,7 @@
 	const express   	= require("express");
 	const app    		= express();
 	const bodyParser 	= require("body-parser");
-	const APIKEY 		= "YOUR API KEY";
+	const APIKEY 		= process.env.APIKEY || "YOUR API KEY";
 	const APIRequests = require("./controllers/firstRequest.js");
 	const port = process.env.PORT || 3000;
 
