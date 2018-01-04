@@ -2,7 +2,7 @@
 	const express   	= require("express");
 	const app    		= express();
 	const bodyParser 	= require("body-parser");
-	const APIKEY 		= process.env.APIKEY || "YOUR API KEY";
+	const APIKEY 		= process.env.APIKEY || "YOUR_API_KEY";
 	const APIRequests = require("./controllers/firstRequest.js");
 	const port = process.env.PORT || 3000;
 
@@ -20,7 +20,7 @@
 	app.post("/", function(req, res) {
 
 		// RegEx = No spaces; All lowercase
-		const Summoner = req.body.name = req.body.name.replace(/\s+/g, '').toLowerCase(); 
+		const Summoner = req.body.name = req.body.name.replace(/\s+/g, '').toLowerCase();
 
 		APIRequests(request, Summoner, APIKEY, req, res, (fbody, sbody) => {
 
